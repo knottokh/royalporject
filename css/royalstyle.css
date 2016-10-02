@@ -51,10 +51,13 @@
 .float-r{
 	float: right;
 }
-
+td{
+   max-width: 250px; 
+   word-break: break-all;
+}
  td.table-details {
- 	/*white-space:pre;*/
- 	max-width: 250px;
+ 	white-space:pre;
+
  }
 
 
@@ -76,4 +79,7 @@
 /*****Royal Style******/
 .kduo-contents{
 	padding-top: 50px;
+}
+div[data-dropdown=admins] li a{
+    white-space: pre;
 }

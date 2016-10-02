@@ -145,17 +145,35 @@
       </div>
       <div class="dropdownSection" data-dropdown="admins">
         <div class="dropdownContent">
-
         <ul class="linkGroup linkList">
-            <li><a class="linkContainer item-apiReference" href="/page/admin/AcctNo.php">
-              <h3 class="linkTitle linkIcon">ตาราง acct_no</h3>
-            </a></li>
-            <li><a class="linkContainer item-apiStatus" href="https://status.stripe.com">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path d="M1 9h2.95l3-6.5 3 12 3-5.45L16 9" fill="none" stroke="#6772e5" class="hover-strokeDark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>API Status</h3>
-            </a></li>
-            <li><a class="linkContainer item-openSource" href="https://stripe.com/open-source">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path fill="#6772E5" class="hover-fillDark" d="M8.5 17a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17zM6.987 6.078a.684.684 0 0 0-.968-.968L3.116 8.012a.684.684 0 0 0 0 .967l2.9 2.9a.684.684 0 0 0 .97-.967l-2.42-2.418 2.42-2.42zm6.996 1.95L11.08 5.123a.684.684 0 0 0-.966.968l2.418 2.42-2.418 2.417a.684.684 0 0 0 .967.967l2.904-2.902a.684.684 0 0 0 0-.966z"/></svg>Open Source</h3>
-            </a></li>
+            <li><a href="/page/admin/acct_fund.php">ตาราง acct_fund</a></li>
+            <li><a href="/page/admin/acct_no.php">ตาราง acct_no</a></li>
+            <li><a href="/page/admin/acct_start.php">ตาราง acct_start</a></li>
+            <li><a href="/page/admin/acct_type.php">ตาราง acct_type</a></li> 
+            <li><a href="/page/admin/agriculture_goods_dtl.php">ตาราง agriculture_goods_dtl</a></li>
+            <li><a href="/page/admin/agriculture_goods_tn.php">ตาราง agriculture_goods_tn</a></li>
+            <li><a href="/page/admin/asset_if.php">ตาราง asset_if</a></li>
+            <li><a href="/page/admin/fertilizer.php">ตาราง fertilizer</a></li>
+            <li><a href="/page/admin/fertilizer_sales_dtl.php">ตาราง fertilizer_sales_dtl</a></li>
+            <li><a href="/page/admin/fertilizer_sales_tn.php">ตาราง fertilizer_sales_tn</a></li>
+            <li><a href="/page/admin/funds.php">ตาราง funds</a></li>
+            <li><a href="/page/admin/goods.php">ตาราง goods</a></li>
+            <li><a href="/page/admin/goods_tf.php">ตาราง goods_tf</a></li>
+            <li><a href="/page/admin/milling_fund_summary.php">ตาราง milling_fund_summary</a></li>
+            <li><a href="/page/admin/milling_fund_tn.php">ตาราง milling_fund_tn</a></li>
+            <li><a href="/page/admin/mill_expense_tn.php">ตาราง mill_expense_tn</a></li>
+            <li><a href="/page/admin/mill_expense_transf.php">ตาราง mill_expense_transf</a></li>
+            <li><a href="/page/admin/mill_expense_transf_dtl.php">ตาราง mill_expense_transf_dtl</a></li>
+            <li><a href="/page/admin/mill_expense_type.php">ตาราง mill_expense_type</a></li>
+            <li><a href="/page/admin/mill_fund_board.php">ตาราง mill_fund_board</a></li>
+            <li><a href="/page/admin/mill_fund_member.php">ตาราง mill_fund_member</a></li>
+            <li><a href="/page/admin/mill_income_dtl.php">ตาราง mill_income_dtl</a></li>
+            <li><a href="/page/admin/mill_income_tn.php">ตาราง mill_income_tn</a></li>
+            <li><a href="/page/admin/mill_product.php">ตาราง mill_product</a></li>
+            <li><a href="/page/admin/observe_activity_tn.php">ตาราง observe_activity_tn</a></li>
+            <li><a href="/page/admin/operating_schedule.php">ตาราง operating_schedule</a></li>
+            <li><a href="/page/admin/participant_tf.php">ตาราง participant_tf</a></li>
+            <li><a href="/page/admin/rice.php">ตาราง rice</a></li>
           </ul>
 
         </div>

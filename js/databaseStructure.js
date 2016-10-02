@@ -9,7 +9,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id :"tn_id",
+	 											tn_id :"tn_id",//p
 	 											acctype_id:"acctype_id", //from acc_type
 	 											acct_id:"acct_id",  //from acct_no
 	 											tn_date:"tn_date",
@@ -22,7 +22,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"acct_id",
 	 											value : 0,
-	 											acct_id :"acct_id",
+	 											acct_id :"acct_id",//p
 	 											acct_name:"acct_name",
 	 											acct_level:"acct_level",
 	 											acct_group:"acct_group", 
@@ -44,7 +44,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"acctype_id",
 	 											value : 0,
-	 											acctype_id:"acctype_id",
+	 											acctype_id:"acctype_id",//p
 	 											acctype_name:"acctype_name",
 	 											fund_id:"fund_id",//From funds
 	 								};
@@ -53,7 +53,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"dtl_id",
 	 											value : 0,
-	 											dtl_id:"dtl_id",
+	 											dtl_id:"dtl_id",//p
 	 											buy_id:"buy_id",
 	 											buy_detail:"buy_detail",
 	 											amount:"amount",
@@ -65,7 +65,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"buy_id",
 	 											value : 0,
-	 											buy_id:"buy_id",
+	 											buy_id:"buy_id",//p
 	 											buy_date:"buy_date",
 	 											buy_vender:"buy_vender",
 	 											acct_flag:"acct_flag",
@@ -75,7 +75,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"asset_id",
 	 											value : 0,
-	 											asset_id:"asset_id",
+	 											asset_id:"asset_id",//p
 	 											tn_date:"tn_date",
 	 											asset_detail:"asset_detail",
 	 											asset_amt:"asset_amt",
@@ -89,7 +89,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"fertilizer_id",
 	 											value : 0,
-	 											fertilizer_id:"fertilizer_id",
+	 											fertilizer_id:"fertilizer_id",//p
 	 											fertilizer_formula:"fertilizer_formula",
 	 											brand:"brand",
 	 											amount:"amount",
@@ -113,7 +113,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"sales_id",
 	 											value : 0,
-	 											sales_id:"sales_id",
+	 											sales_id:"sales_id",//p
 	 											sales_detail:"sales_detail",
 	 											address_id:"address_id",
 	 											address_moo:"address_moo",
@@ -127,7 +127,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"fund_id",
 	 											value : 0,
-	 											fund_id:"fund_id",
+	 											fund_id:"fund_id",//p
 	 											fund_name:"fund_name",
 	 											history:"history",
 	 								};
@@ -136,7 +136,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"goods_id",
 	 											value : 0,
-	 											goods_id:"goods_id",
+	 											goods_id:"goods_id",//p
 	 											goods_name:"goods_name",
 	 											accmount:"accmount",
 	 								};
@@ -145,7 +145,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tf_id",
 	 											value : 0,
-	 											tf_id:"tf_id",
+	 											tf_id:"tf_id",//p
 	 											tn_date:"tn_date",
 	 											goods_id:"goods_id",
 	 											goods_amt:"goods_amt",
@@ -157,7 +157,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"summary_key",
 	 											value : 0,
-	 											summary_key:"summary_key",
+	 											summary_key:"summary_key",//p
 	 											summary_date:"summary_date",
 	 											net_amount:"net_amount",
 	 											net_weight_paddy:"net_weight_paddy",
@@ -170,7 +170,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											milling_date:"milling_date",
 	 											milling_detail:"milling_detail",
 	 											milling_address:"milling_address",
@@ -183,7 +183,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											tn_date:"tn_date",
 	 											tn_detail:"tn_detail",
 	 											mill_expense_id:"mill_expense_id",
@@ -197,7 +197,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											tn_date:"tn_date",
 	 											tn_detail:"tn_detail",
 	 											net:"net",
@@ -208,7 +208,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											rice_id:"rice_id",
 	 											amount:"amount",
 	 											price_per_unit:"price_per_unit",
@@ -219,7 +219,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"mill_expense_id",
 	 											value : 0,
-	 											mill_expense_id:"mill_expense_id",
+	 											mill_expense_id:"mill_expense_id",//p
 	 											expense_name:"expense_name",
 	 								};
 	 								break;
@@ -227,7 +227,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"board_id",
 	 											value : 0,
-	 											board_id:"board_id",
+	 											board_id:"board_id",//p
 	 											board_name:"board_name",
 	 											board_position:"board_position",
 	 											board_status:"board_status",
@@ -237,7 +237,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"member_id",
 	 											value : 0,
-	 											member_id:"member_id",
+	 											member_id:"member_id",//p
 	 											prename:"prename",
 	 											first_name:"first_name",
 	 											last_name:"last_name",
@@ -257,7 +257,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"dtl_id",
 	 											value : 0,
-	 											dtl_id:"dtl_id",
+	 											dtl_id:"dtl_id",//p
 	 											tn_id:"tn_id",
 	 											mill_product_id:"mill_product_id",
 	 											amount:"amount",
@@ -268,7 +268,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											tn_detail:"tn_detail",
 	 											tn_date:"tn_date",
 	 											remark:"remark",
@@ -279,7 +279,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"mill_product_id",
 	 											value : 0,
-	 											mill_product_id:"mill_product_id",
+	 											mill_product_id:"mill_product_id",//p
 	 											product_name:"product_name",
 	 											cost:"cost",
 	 											price:"price",
@@ -290,7 +290,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"obs_activity_id",
 	 											value : 0,
-	 											obs_activity_id:"obs_activity_id",
+	 											obs_activity_id:"obs_activity_id",//p
 	 											obs_date:"obs_date",
 	 											obs_detail:"obs_detail",
 	 											obs_amount:"obs_amount",
@@ -302,7 +302,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"tn_id",
 	 											value : 0,
-	 											tn_id:"tn_id",
+	 											tn_id:"tn_id",//p
 	 											operate_date:"operate_date",
 	 											board_id:"board_id",
 	 											remark:"remark",
@@ -312,7 +312,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"pt_id",
 	 											value : 0,
-	 											pt_id:"pt_id",
+	 											pt_id:"pt_id",//p
 	 											tn_date:"tn_date",
 	 											join_name:"join_name",
 	 											acctype_id:"acctype_id",
@@ -322,7 +322,7 @@ var $pageEntity = {
 	 								returnobj ={
 	 											primary :"rice_id",
 	 											value : 0,
-	 											rice_id:"rice_id",
+	 											rice_id:"rice_id",//p
 	 											rice_name:"rice_name",
 	 								};
 	 								break;		 								
@@ -471,7 +471,7 @@ var $pageEntity = {
 
 					});	
 	 },
-	 dateFormate: function (date) {
+	dateTimeFormate: function (date) {
 
         return 	date.getFullYear() +"-" 
         				+(date.getMonth() + 1) +"-"
@@ -480,12 +480,24 @@ var $pageEntity = {
                 + date.getMinutes() + ":"
                 + date.getSeconds();
     },
-   MysqlDatetoDate:function (dateString) {
+   MysqlDatetoDateTime:function (dateString) {
   		var dt  = dateString.split(/\-|\s|:/);
   		var m = parseInt(dt[1]) - 1;
   		dt[1] = m;
   		return new Date(dt[0],dt[1],dt[2],dt[3],dt[4],dt[5]);
 		},
+	dateFormate: function (date) {
+
+        return 	date.getFullYear() +"-" 
+        				+(date.getMonth() + 1) +"-"
+                + date.getDate();
+    },
+   MysqlDatetoDate:function (dateString) {
+  		var dt  = dateString.split(/\-|\s|:/);
+  		var m = parseInt(dt[1]) - 1;
+  		dt[1] = m;
+  		return new Date(dt[0],dt[1],dt[2]);
+	},	
 	 getParameterByName:function(name, url) {
 		    if (!url) url = window.location.href;
 		    name = name.replace(/[\[\]]/g, "\\$&");
