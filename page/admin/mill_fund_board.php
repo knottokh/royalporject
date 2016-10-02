@@ -11,7 +11,7 @@
 
     <?php include $rootpath."scriptref.php";?>
 
-     <script src="<?=$scriptroot?>js/admin/adminAcctNo.js"></script>
+     <script src="<?=$scriptroot?>js/admin/admin_mill_fund_board.js"></script>
     </head>
 <body>
 <?php include $rootpath."header.php";?>
@@ -19,7 +19,7 @@
     
     <div class="kduo-contents">
         <div class="container">
-     <h1>ตราราง acct_no</h1>
+     <h1>ตาราง mill_fund_board</h1>
      <br/>
      <div class="form-group">
           <button class="btn btn-primary btn-dlg-newItem" type="button" >New Data</button>
@@ -46,9 +46,9 @@
             <thead>
                 <tr>
                    <th data-name="records_no" class="col-center" style="width: 50px">No.</th>
-                    <th class="col-center">Name</th>
-                    <th class="col-right">Level</th>
-                    <th class="col-right">Group</th>
+                    <th class="col-center">board_name</th>
+                    <th class="col-center">board_position</th>
+                    <th class="col-center">board_status</th>
                     <th data-name="action" style="width: 110px"></th>
                 </tr>
             </thead>
@@ -70,9 +70,9 @@
         <tbody>
             <tr data-id="{0}">
                 <td class="col-center">{1}</td>
-                <td>{2}</td>
-                <td class="col-right">{3}</td>
-                <td class="col-right">{4}</td>
+                <td class="">{2}</td>
+                <td class="">{3}</td>
+                <td class="">{4}</td>
                 <td class="col-right">
                     <span tracking="V" class="glyphicon glyphicon-eye-open kduo-pointer kudo-button btn-view hidden" title="View" aria-hidden="true"></span>
                     <span tracking="E" class="glyphicon glyphicon-pencil kduo-pointer kudo-button btn-assign hidden" title="Edit" aria-hidden="true"></span>
@@ -84,30 +84,30 @@
 </div>
 <div id="tablesDataTmp" class="hidden">
      <form id="tablesDataForms" name="tablesDataForms" class="form-horizontal" role="form" method="get" action="">
-               <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesName">
-                    Name <span class="required">*</span>:
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="board_name">
+                    board_name <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesName" class="form-control" />
+                    <input type="text" name="board_name" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesLevel">
-                    Level :
+                <label class="col-sm-3 control-label" for="board_position">
+                    board_position <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesLevel" class="form-control form-number" />
+                    <input type="text" name="board_position" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesGroup">
-                    Group :
+                <label class="col-sm-3 control-label" for="board_status">
+                    board_status <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesGroup" class="form-control form-number" />
+                    <input type="text" name="board_status" class="form-control form-number" />
                 </div>
-            </div>
+            </div>   
              <div class="modal-footer">
                 <button class="btn btn-primary btn-save" type="button" >Save</button>
                 <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Cancel</button>

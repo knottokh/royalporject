@@ -1,5 +1,5 @@
 var $adminTables= {
-	 tablename:'acct_no',
+	 tablename:'mill_income_tn',
 	 $giid :null,
 	 $taskDialog:null,
 	 $formValid:null,
@@ -34,11 +34,12 @@ var $adminTables= {
             PerPage:20,
             fnRowDisplayFormat: function (html, data) {
                 return html.format(
-                		data.acct_id,
+                		data.tn_id,
                 		data.RecordNo,
-                    	data.acct_name,
-	                    data.acct_level,
-	                    data.acct_group
+	                    data.tn_detail,
+	                    data.tn_date,
+	                    data.remark,
+	                    data.net_sale
                     );
             },
             fnRowElementsAction: [{
@@ -66,42 +67,66 @@ var $adminTables= {
         });
 				$adminTables.$grid.Bind();
 	 },
+	 ToCalendarDate:function(divid){
+		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
+		 $adminTables.$taskDialog.find(divid).datetimepicker({
+		                    locale: 'th',
+		                  //  sideBySide:true,
+		                   format: 'YYYY-MM-DD',
+		                    widgetPositioning: {
+									            horizontal: 'auto',
+									            vertical: 'bottom'
+									        }
+		                  //  widgetParent:".wiget-calendar-div"
+		                });
+		//  $adminMatches.$taskDialog.find(divid).on("dp.change", function (e) {
+       //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
+       // });
+	},
+	ToCalendarDateTime:function(divid){
+		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
+		 $adminTables.$taskDialog.find(divid).datetimepicker({
+		                    locale: 'th',
+		                  //  sideBySide:true,
+		                    widgetPositioning: {
+									            horizontal: 'auto',
+									            vertical: 'bottom'
+									        }
+		                  //  widgetParent:".wiget-calendar-div"
+		                });
+		//  $adminMatches.$taskDialog.find(divid).on("dp.change", function (e) {
+       //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
+       // });
+	},
 	 dialogShow:function ($row, id){
-
-	 			   	
+			$spinner.show();
+	 		
+	 		try{	   	
             $adminTables.$taskDialog = $dialogFirst.init('#tablesDataTmp');
             $adminTables.$formValid = $adminTables.$taskDialog.find("#tablesDataForms");
             $adminTables.$formValid.validate({
 		            rules: {
-		                TablesName: {
-		                    required: true
+		                tn_detail: {
+		                    required: true,
+		                    maxlength:1000,
 		                },
-		                TablesLevel: {
+                        tn_date: {
+		                    required: true,
+		                },
+		                remark: {
+		                    required: true,
+		                    maxlength:300,
+		                },
+		                net_sale: {
 		                    required: true,
 		                    number: true,
 		                },
-		                TablesGroup: {
-		                    required: true,
-		                    number: true,
-		                }
 		            },
-		            messages: {
-		                TablesName: {
-		                    required: "required",
-		                },
-		                TablesLevel: {
-		                    required: "required",
-		                    number:"number only",
-		                },
-		                 TablesGroup: {
-		                    required: "required",
-		                    number:"number only",
-		                },
-		            }
 		        });
 
             $adminTables.$taskDialog.find(".btn-close").hide();
-              $spinner.show();	
+			$adminTables.ToCalendarDate("#tn_date");
+			
             if(id){
 
 
@@ -110,9 +135,8 @@ var $adminTables= {
             			$adminTables.$taskDialog.find(".btn-save").hide();
             			$adminTables.$taskDialog.find(".btn-cancel").hide();
             			$adminTables.$taskDialog.find(".btn-close").show();
-            			$adminTables.$taskDialog.find('input[name=TablesName]').prop('readonly', true);	
-            			$adminTables.$taskDialog.find('input[name=TablesLevel]').prop('readonly', true);
-            			$adminTables.$taskDialog.find('input[name=TablesGroup]').prop('readonly', true);
+            			$adminTables.$taskDialog.find('input').prop('readonly', true);	
+            			$adminTables.$taskDialog.find('textarea').prop('readonly', true);
             	}else{
             		 $adminTables.$taskDialog.find(".btn-save").click(function(){
             		 				$adminTables.onSubmitUpdateTables(id);
@@ -127,9 +151,10 @@ var $adminTables= {
 				 									
 				 												var jsonobj = JSON.parse(data.data);
 				 												//alert(jsonobj[0].Name);
-				 												 $adminTables.$taskDialog.find('input[name=TablesName]').val(jsonobj[0].acct_name);	
-				 												 $adminTables.$taskDialog.find('input[name=TablesLevel]').val(jsonobj[0].acct_level);
-				 												 $adminTables.$taskDialog.find('input[name=TablesGroup]').val(jsonobj[0].acct_group);	
+				 												$adminTables.$taskDialog.find('textarea[name=tn_detail]').html(jsonobj[0].tn_detail);
+				 												$adminTables.$taskDialog.find('#tn_date').data('DateTimePicker').date($pageEntity.MysqlDatetoDate(jsonobj[0].tn_date));
+				 												 $adminTables.$taskDialog.find('textarea[name=remark]').html(jsonobj[0].remark);
+				 												 $adminTables.$taskDialog.find('input[name=net_sale]').val(jsonobj[0].net_sale);
            			 						
 				 									  $spinner.hide();		
            			 								$adminTables.$taskDialog.show();
@@ -142,7 +167,12 @@ var $adminTables= {
            			 $adminTables.$taskDialog.show();
             }
 
-
+	 		}
+	 		catch(e){
+	 			$spinner.hide();	
+	 			var params = { message: "เกิดข้อผิดพลาด : "+e.message };
+	 			$alert.error(params);
+	 		}
 
 	 },
 	deleteItems: function ($row, id) {
@@ -195,16 +225,22 @@ var $adminTables= {
    		$adminTables.addToDatabase(id);
    		return false;
    },
+   getDateToDb:function(divid){
+   		return $pageEntity.dateFormate(new Date($adminTables.$taskDialog.find('#'+divid).data('DateTimePicker').date().toString()));
+   },
    addToDatabase:function(itemid){
    		if( $adminTables.$formValid.valid()){
-   					//	var file_data = $adminTables.$taskDialog.find('#files').prop('files')[0];   
-   						var tablesname		= $adminTables.$taskDialog.find('input[name=TablesName]').val();
-					    var tableslevel 	= $adminTables.$taskDialog.find('input[name=TablesLevel]').val();
-					    var tablesgroup 	= $adminTables.$taskDialog.find('input[name=TablesGroup]').val();
+   					//	var file_data = $adminTables.$taskDialog.find('#files').prop('files')[0];  
+   					    var tn_detail 	= $adminTables.$taskDialog.find('textarea[name=tn_detail]').html();
+   					    var tn_date 	= $adminTables.getDateToDb('tn_date');
+   					    var remark 	= $adminTables.$taskDialog.find('textarea[name=remark]').html();
+					    var net_sale 	= $adminTables.$taskDialog.find('input[name=net_sale]').val();
+					    
    					 	var attno = $adminTables.objdata();
-	 								attno.acct_name = tablesname;
-	 								attno.acct_level = tableslevel;
-									attno.acct_group = tablesgroup;		
+   					 				attno.tn_detail = tn_detail;
+	 								attno.tn_date = tn_date;
+									attno.remark = remark;
+									attno.net_sale = net_sale;
 	 						if(itemid){
 	 										attno.value = itemid;
 	 								}	

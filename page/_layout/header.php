@@ -88,40 +88,6 @@
       <div class="dropdownSection" data-dropdown="accounts">
         <div class="dropdownContent">
           
-          <div class="linkGroup documentationGroup">
-            <a class="linkContainer withIcon item-documentation" href="https://stripe.com/docs">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path fill="#87BBFD" class="hover-fillLight" d="M.945 1.998h3.632C6.744 1.998 8.5 3.005 8.5 4.83v11.583c-.512 0-1.015-.337-1.33-.59-1.03-.828-3.057-.828-5.222-.828H.945A.944.944 0 0 1 0 14.052V2.944C0 2.422.423 2 .945 2z"/><path fill="#6772E5" class="hover-fillDark" d="M16.055 1.998h-3.632C10.257 1.998 8.5 3.005 8.5 4.83v11.583c.512 0 1.015-.337 1.33-.59 1.03-.828 3.057-.828 5.222-.828h1.003A.944.944 0 0 0 17 14.05V2.945A.944.944 0 0 0 16.055 2z"/></svg>Documentation</h3>
-              <span class="linkSub">Start integrating Stripe’s products and&nbsp;tools.</span>
-            </a>
-            <div class="documentationArticles">
-              <ul>
-                <li><h4>Get started</h4></li>
-                <li><a href="https://stripe.com/docs/custom-form">Stripe.js</a></li>
-                <li><a href='https://stripe.com/docs/checkout/tutorial'>Checkout</a></li>
-                <li><a href='https://stripe.com/docs/mobile'>Mobile apps</a></li>
-                <li><a href='https://stripe.com/docs/libraries'>Libraries</a></li>
-              </ul>
-              <ul>
-                <li><h4>Popular topics</h4></li>
-                <li><a href='https://stripe.com/docs/apple-pay'>Apple Pay</a></li>
-                <li><a href='https://stripe.com/docs/testing'>Testing</a></li>
-                <li><a href='https://stripe.com/docs/checklist'>Launch checklist</a></li>
-                <li><a href='https://stripe.com/docs/libraries#third-party-plugins'>Plug-ins</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <ul class="linkGroup linkList">
-            <li><a class="linkContainer item-apiReference" href="https://stripe.com/docs/api">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path d="M2 15h13M2 11h13M2 7h13M2 3h13" fill="none" stroke="#6772e5" class="hover-strokeDark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full API Reference</h3>
-            </a></li>
-            <li><a class="linkContainer item-apiStatus" href="https://status.stripe.com">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path d="M1 9h2.95l3-6.5 3 12 3-5.45L16 9" fill="none" stroke="#6772e5" class="hover-strokeDark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>API Status</h3>
-            </a></li>
-            <li><a class="linkContainer item-openSource" href="https://stripe.com/open-source">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path fill="#6772E5" class="hover-fillDark" d="M8.5 17a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17zM6.987 6.078a.684.684 0 0 0-.968-.968L3.116 8.012a.684.684 0 0 0 0 .967l2.9 2.9a.684.684 0 0 0 .97-.967l-2.42-2.418 2.42-2.42zm6.996 1.95L11.08 5.123a.684.684 0 0 0-.966.968l2.418 2.42-2.418 2.417a.684.684 0 0 0 .967.967l2.904-2.902a.684.684 0 0 0 0-.966z"/></svg>Open Source</h3>
-            </a></li>
-          </ul>
 
         </div>
       </div>
@@ -129,17 +95,6 @@
       <div class="dropdownSection" data-dropdown="reports">
         <div class="dropdownContent">
 
-          <ul class="linkGroup linkList">
-            <li><a class="linkContainer item-apiReference" href="https://stripe.com/docs/api">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path d="M2 15h13M2 11h13M2 7h13M2 3h13" fill="none" stroke="#6772e5" class="hover-strokeDark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Full API Reference</h3>
-            </a></li>
-            <li><a class="linkContainer item-apiStatus" href="https://status.stripe.com">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path d="M1 9h2.95l3-6.5 3 12 3-5.45L16 9" fill="none" stroke="#6772e5" class="hover-strokeDark" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>API Status</h3>
-            </a></li>
-            <li><a class="linkContainer item-openSource" href="https://stripe.com/open-source">
-              <h3 class="linkTitle linkIcon"><svg width="17" height="17"><path fill="#6772E5" class="hover-fillDark" d="M8.5 17a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17zM6.987 6.078a.684.684 0 0 0-.968-.968L3.116 8.012a.684.684 0 0 0 0 .967l2.9 2.9a.684.684 0 0 0 .97-.967l-2.42-2.418 2.42-2.42zm6.996 1.95L11.08 5.123a.684.684 0 0 0-.966.968l2.418 2.42-2.418 2.417a.684.684 0 0 0 .967.967l2.904-2.902a.684.684 0 0 0 0-.966z"/></svg>Open Source</h3>
-            </a></li>
-          </ul>
 
         </div>
       </div>

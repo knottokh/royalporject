@@ -11,7 +11,7 @@
 
     <?php include $rootpath."scriptref.php";?>
 
-     <script src="<?=$scriptroot?>js/admin/adminAcctNo.js"></script>
+     <script src="<?=$scriptroot?>js/admin/admin_mill_expense_transf_dtl.js"></script>
     </head>
 <body>
 <?php include $rootpath."header.php";?>
@@ -19,7 +19,7 @@
     
     <div class="kduo-contents">
         <div class="container">
-     <h1>ตราราง acct_no</h1>
+     <h1>ตาราง mill_expense_transf_dtl</h1>
      <br/>
      <div class="form-group">
           <button class="btn btn-primary btn-dlg-newItem" type="button" >New Data</button>
@@ -46,9 +46,11 @@
             <thead>
                 <tr>
                    <th data-name="records_no" class="col-center" style="width: 50px">No.</th>
-                    <th class="col-center">Name</th>
-                    <th class="col-right">Level</th>
-                    <th class="col-right">Group</th>
+                    <th class="col-right">tn_id</th>
+                    <th class="col-right">rice_id</th>
+                    <th class="col-right">amount</th>
+                    <th class="col-right">price_per_unit</th>
+                    <th class="col-right">transf_amount</th>
                     <th data-name="action" style="width: 110px"></th>
                 </tr>
             </thead>
@@ -70,9 +72,11 @@
         <tbody>
             <tr data-id="{0}">
                 <td class="col-center">{1}</td>
-                <td>{2}</td>
+                <td class="col-right">{2}</td>
                 <td class="col-right">{3}</td>
                 <td class="col-right">{4}</td>
+                <td class="col-right">{5}</td>
+                <td class="col-right">{6}</td>
                 <td class="col-right">
                     <span tracking="V" class="glyphicon glyphicon-eye-open kduo-pointer kudo-button btn-view hidden" title="View" aria-hidden="true"></span>
                     <span tracking="E" class="glyphicon glyphicon-pencil kduo-pointer kudo-button btn-assign hidden" title="Edit" aria-hidden="true"></span>
@@ -84,28 +88,44 @@
 </div>
 <div id="tablesDataTmp" class="hidden">
      <form id="tablesDataForms" name="tablesDataForms" class="form-horizontal" role="form" method="get" action="">
-               <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesName">
-                    Name <span class="required">*</span>:
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="tn_id">
+                    tn_id <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesName" class="form-control" />
+                    <input type="text" name="tn_id" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesLevel">
-                    Level :
+                <label class="col-sm-3 control-label" for="rice_id">
+                    rice_id <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesLevel" class="form-control form-number" />
+                    <input type="text" name="rice_id" class="form-control" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label" for="TablesGroup">
-                    Group :
+                <label class="col-sm-3 control-label" for="amount">
+                    amount <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="TablesGroup" class="form-control form-number" />
+                    <input type="text" name="amount" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="price_per_unit">
+                    price_per_unit <span class="required">*</span>:
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" name="price_per_unit" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="transf_amount">
+                    transf_amount <span class="required">*</span>:
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" name="transf_amount" class="form-control" />
                 </div>
             </div>
              <div class="modal-footer">

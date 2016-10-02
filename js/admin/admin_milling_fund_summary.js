@@ -1,5 +1,5 @@
 var $adminTables= {
-	 tablename:'acct_no',
+	 tablename:'milling_fund_summary',
 	 $giid :null,
 	 $taskDialog:null,
 	 $formValid:null,
@@ -34,11 +34,14 @@ var $adminTables= {
             PerPage:20,
             fnRowDisplayFormat: function (html, data) {
                 return html.format(
-                		data.acct_id,
+                		data.summary_key,
                 		data.RecordNo,
-                    	data.acct_name,
-	                    data.acct_level,
-	                    data.acct_group
+                    	data.summary_date,
+	                    data.net_amount,
+	                    data.net_weight_paddy,
+	                    data.net_weight_rice,
+	                    data.net_broken_milled_rice,
+	                    data.net_rice_bran
                     );
             },
             fnRowElementsAction: [{
@@ -66,42 +69,84 @@ var $adminTables= {
         });
 				$adminTables.$grid.Bind();
 	 },
+	 ToCalendarDate:function(divid){
+		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
+		 $adminTables.$taskDialog.find(divid).datetimepicker({
+		                    locale: 'th',
+		                  //  sideBySide:true,
+		                   format: 'YYYY-MM-DD',
+		                    widgetPositioning: {
+									            horizontal: 'auto',
+									            vertical: 'bottom'
+									        }
+		                  //  widgetParent:".wiget-calendar-div"
+		                });
+		//  $adminMatches.$taskDialog.find(divid).on("dp.change", function (e) {
+       //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
+       // });
+	},
+	ToCalendarDateTime:function(divid){
+		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
+		 $adminTables.$taskDialog.find(divid).datetimepicker({
+		                    locale: 'th',
+		                  //  sideBySide:true,
+		                    widgetPositioning: {
+									            horizontal: 'auto',
+									            vertical: 'bottom'
+									        }
+		                  //  widgetParent:".wiget-calendar-div"
+		                });
+		//  $adminMatches.$taskDialog.find(divid).on("dp.change", function (e) {
+       //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
+       // });
+	},
 	 dialogShow:function ($row, id){
-
-	 			   	
+			$spinner.show();
+	 		
+	 		try{	   	
             $adminTables.$taskDialog = $dialogFirst.init('#tablesDataTmp');
             $adminTables.$formValid = $adminTables.$taskDialog.find("#tablesDataForms");
             $adminTables.$formValid.validate({
 		            rules: {
-		                TablesName: {
-		                    required: true
+		            	summary_date: {
+		                    required: true,
 		                },
-		                TablesLevel: {
+		                net_amount: {
 		                    required: true,
 		                    number: true,
+		                    maxlength:11,
+		                    digits: true,
 		                },
-		                TablesGroup: {
+		                net_weight_paddy: {
 		                    required: true,
 		                    number: true,
-		                }
+		                    maxlength:11,
+		                    digits: true,
+		                },
+		                net_weight_rice: {
+		                    required: true,
+		                    number: true,
+		                    maxlength:11,
+		                    digits: true,
+		                },
+		                net_broken_milled_rice: {
+		                    required: true,
+		                    number: true,
+		                    maxlength:11,
+		                    digits: true,
+		                },
+		                net_rice_bran: {
+		                    required: true,
+		                    number: true,
+		                    maxlength:11,
+		                    digits: true,
+		                },
 		            },
-		            messages: {
-		                TablesName: {
-		                    required: "required",
-		                },
-		                TablesLevel: {
-		                    required: "required",
-		                    number:"number only",
-		                },
-		                 TablesGroup: {
-		                    required: "required",
-		                    number:"number only",
-		                },
-		            }
 		        });
 
             $adminTables.$taskDialog.find(".btn-close").hide();
-              $spinner.show();	
+			$adminTables.ToCalendarDate("#summary_date");
+			
             if(id){
 
 
@@ -110,9 +155,8 @@ var $adminTables= {
             			$adminTables.$taskDialog.find(".btn-save").hide();
             			$adminTables.$taskDialog.find(".btn-cancel").hide();
             			$adminTables.$taskDialog.find(".btn-close").show();
-            			$adminTables.$taskDialog.find('input[name=TablesName]').prop('readonly', true);	
-            			$adminTables.$taskDialog.find('input[name=TablesLevel]').prop('readonly', true);
-            			$adminTables.$taskDialog.find('input[name=TablesGroup]').prop('readonly', true);
+            			$adminTables.$taskDialog.find('input').prop('readonly', true);	
+            			//$adminTables.$taskDialog.find('textarea').prop('readonly', true);
             	}else{
             		 $adminTables.$taskDialog.find(".btn-save").click(function(){
             		 				$adminTables.onSubmitUpdateTables(id);
@@ -127,9 +171,12 @@ var $adminTables= {
 				 									
 				 												var jsonobj = JSON.parse(data.data);
 				 												//alert(jsonobj[0].Name);
-				 												 $adminTables.$taskDialog.find('input[name=TablesName]').val(jsonobj[0].acct_name);	
-				 												 $adminTables.$taskDialog.find('input[name=TablesLevel]').val(jsonobj[0].acct_level);
-				 												 $adminTables.$taskDialog.find('input[name=TablesGroup]').val(jsonobj[0].acct_group);	
+				 												$adminTables.$taskDialog.find('#summary_date').data('DateTimePicker').date($pageEntity.MysqlDatetoDate(jsonobj[0].summary_date));
+				 												 $adminTables.$taskDialog.find('input[name=net_amount]').val(jsonobj[0].net_amount);	
+				 												 $adminTables.$taskDialog.find('input[name=net_weight_paddy]').val(jsonobj[0].net_weight_paddy);
+				 												 $adminTables.$taskDialog.find('input[name=net_weight_rice]').val(jsonobj[0].net_weight_rice);	
+				 												 $adminTables.$taskDialog.find('input[name=net_broken_milled_rice]').val(jsonobj[0].net_broken_milled_rice);
+				 												 $adminTables.$taskDialog.find('input[name=net_rice_bran]').val(jsonobj[0].net_rice_bran);	
            			 						
 				 									  $spinner.hide();		
            			 								$adminTables.$taskDialog.show();
@@ -142,7 +189,12 @@ var $adminTables= {
            			 $adminTables.$taskDialog.show();
             }
 
-
+	 		}
+	 		catch(e){
+	 			$spinner.hide();	
+	 			var params = { message: "เกิดข้อผิดพลาด : "+e.message };
+	 			$alert.error(params);
+	 		}
 
 	 },
 	deleteItems: function ($row, id) {
@@ -195,16 +247,25 @@ var $adminTables= {
    		$adminTables.addToDatabase(id);
    		return false;
    },
+   getDateToDb:function(divid){
+   		return $pageEntity.dateFormate(new Date($adminTables.$taskDialog.find('#'+divid).data('DateTimePicker').date().toString()));
+   },
    addToDatabase:function(itemid){
    		if( $adminTables.$formValid.valid()){
    					//	var file_data = $adminTables.$taskDialog.find('#files').prop('files')[0];   
-   						var tablesname		= $adminTables.$taskDialog.find('input[name=TablesName]').val();
-					    var tableslevel 	= $adminTables.$taskDialog.find('input[name=TablesLevel]').val();
-					    var tablesgroup 	= $adminTables.$taskDialog.find('input[name=TablesGroup]').val();
+   					    var summary_date 	= $adminTables.getDateToDb('summary_date');
+   						var net_amount		= $adminTables.$taskDialog.find('input[name=net_amount]').val();
+					    var net_weight_paddy 	= $adminTables.$taskDialog.find('input[name=net_weight_paddy]').val();
+					    var net_weight_rice		= $adminTables.$taskDialog.find('input[name=net_weight_rice]').val();
+					    var net_broken_milled_rice 	= $adminTables.$taskDialog.find('input[name=net_broken_milled_rice]').val();
+					    var net_rice_bran		= $adminTables.$taskDialog.find('input[name=net_rice_bran]').val();
    					 	var attno = $adminTables.objdata();
-	 								attno.acct_name = tablesname;
-	 								attno.acct_level = tableslevel;
-									attno.acct_group = tablesgroup;		
+	 								attno.summary_date = summary_date;
+	 								attno.net_amount = net_amount;
+									attno.net_weight_paddy = net_weight_paddy;	
+									attno.net_weight_rice = net_weight_rice;
+	 								attno.net_broken_milled_rice = net_broken_milled_rice;
+									attno.net_rice_bran = net_rice_bran;	
 	 						if(itemid){
 	 										attno.value = itemid;
 	 								}	
