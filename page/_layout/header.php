@@ -10,11 +10,11 @@
       </li>
 
       <li class="navSection primary">
-        <a class="rootLink hasDropdown colorize" data-dropdown="accounts">
-          เพิ่มบัญชีใหม่
+        <a class="rootLink hasDropdown colorize" data-dropdown="setups">
+          กำหนดค่าเริ่นต้นระบบใหม่
         </a>
-        <a class="rootLink hasDropdown colorize" data-dropdown="reports">
-          ดูรายงาน
+        <a class="rootLink hasDropdown colorize" data-dropdown="funds">
+          การบริหารจัดการงานกองทุนตลาด
         </a>
          <a class="rootLink hasDropdown colorize" data-dropdown="admins">
           ผู้ดูแลระบบ
@@ -85,17 +85,36 @@
     <div class="dropdownArrow"></div>
     <div class="dropdownContainer">
 
-      <div class="dropdownSection" data-dropdown="accounts">
+      <div class="dropdownSection" data-dropdown="setups">
         <div class="dropdownContent">
-          
-
+            <ul class="linkGroup linkList">
+            <li><a href="/page/acct_no.php">กำหนดชื่อบัญชี </a></li>
+            <li><a href="/page/acct_type.php">กำหนดหมวดบัญชีของแต่ละกองทุน </a></li>
+            <li><a href="/page/acct_start.php">กำหนดค่าเริ่มต้นหมวดบัญชีของแต่ละกองทุน</a></li>
+            <li><a href="/page/funds.php">บันทึกข้อมูลกองทุน </a></li>
+            </ul>
         </div>
       </div>
 
-      <div class="dropdownSection" data-dropdown="reports">
+      <div class="dropdownSection" data-dropdown="funds">
         <div class="dropdownContent">
-
-
+          <div class="linkGroup blogGroup">
+            <h3 class="linkTitle linkIcon">การจัดการ-การรับซื้อผัก</h3>
+            <ul class="blogPosts">
+              <li><a href="#">งานบันทึกข้อมูลการรับซื้อผัก</a></li>
+              <li><a href="#">งานการลงบัญชีจ่ายจากรายการต้นทุนจากการรับซื้อผัก </a></li>
+              <li><a href="#">ออกรายงานผลการดำเนินงาน  </a></li>
+            </ul>
+          </div>
+          <div class="linkGroup blogGroup">
+            <h3 class="linkTitle linkIcon">การจัดการ-การแปรรูป</h3>
+            <ul class="blogPosts">
+              <li><a href="#">กำหนดประเภทผลิตภัณฑ์แปรรูป</a></li>
+              <li><a href="#">จัดการข้อมูลการแปรรูป</a></li>
+              <li><a href="#">งานการลงบัญชีเพิ่มเติม </a></li>
+              <li><a href="#">การปิดบัญชี-กองทุนตลาด </a></li>
+            </ul>
+          </div> 
         </div>
       </div>
       <div class="dropdownSection" data-dropdown="admins">

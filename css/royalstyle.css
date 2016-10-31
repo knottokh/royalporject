@@ -80,6 +80,6 @@ td{
 .kduo-contents{
 	padding-top: 50px;
 }
-div[data-dropdown=admins] li a{
+div[data-dropdown] li a{
     white-space: pre;
 }
