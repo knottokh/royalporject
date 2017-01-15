@@ -101,17 +101,17 @@
           <div class="linkGroup blogGroup">
             <h3 class="linkTitle linkIcon">การจัดการ-การรับซื้อผัก</h3>
             <ul class="blogPosts">
-              <li><a href="#">งานบันทึกข้อมูลการรับซื้อผัก</a></li>
-              <li><a href="#">งานการลงบัญชีจ่ายจากรายการต้นทุนจากการรับซื้อผัก </a></li>
-              <li><a href="#">ออกรายงานผลการดำเนินงาน  </a></li>
+              <li><a href="/page/agriculture_goods_tn.php">งานบันทึกข้อมูลการรับซื้อผัก</a></li>
+              <li><a href="/page/acct_fund_vegetables.php">งานการลงบัญชีจ่ายจากรายการต้นทุนจากการรับซื้อผัก </a></li>
+              <li><a href="/page/acct_fund_reportveget.php">ออกรายงานผลการดำเนินงาน  </a></li>
             </ul>
           </div>
           <div class="linkGroup blogGroup">
             <h3 class="linkTitle linkIcon">การจัดการ-การแปรรูป</h3>
             <ul class="blogPosts">
-              <li><a href="#">กำหนดประเภทผลิตภัณฑ์แปรรูป</a></li>
+              <li><a href="/page/acct_goods.php">กำหนดประเภทผลิตภัณฑ์แปรรูป</a></li>
               <li><a href="#">จัดการข้อมูลการแปรรูป</a></li>
-              <li><a href="#">งานการลงบัญชีเพิ่มเติม </a></li>
+              <li><a href="/page/acct_fund_extra.php">งานการลงบัญชีเพิ่มเติม </a></li>
               <li><a href="#">การปิดบัญชี-กองทุนตลาด </a></li>
             </ul>
           </div> 

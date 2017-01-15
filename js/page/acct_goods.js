@@ -1,5 +1,5 @@
 var $adminTables= {
-	 tablename:'acct_fund',
+	 tablename:'goods',
 	 $giid :null,
 	 $taskDialog:null,
 	 $formValid:null,
@@ -12,53 +12,14 @@ var $adminTables= {
 				  		$adminTables.dialogShow();
             return false;
         });
-         $(document).on('click.bs.modal.data-api', '.btn-dlg-searchItem', function (event) {
-				  		$adminTables.loadData();
-            return false;
-        });
-        	$adminTables.ToCalendarDateSearch("#searchfrom");
-        	$adminTables.ToCalendarDateSearch("#searchto");
 			$adminTables.defaultimg =  $globalKudo.rootpath+"images/defaults/no-image.jpg";
 	 },
 	 loadData:function(){
-	 		var fromdate = "";
-	 	try{
-	 		fromdate =$adminTables.getDateForSearch("searchfrom");
-	 	}catch(e){}
-	 	var todate = "";
-	 	try{
-	 		todate =$adminTables.getDateForSearch("searchto");
-	 	}catch(e){}
-	 	var searchtext = "";
-	 	if(fromdate!="" && todate!=""){
-	 		searchtext = " where acct_fund.tn_date >= '"+fromdate+"' and acct_fund.tn_date <= '"+todate+"'";
-	 	}
-	 	else if(fromdate!="" && todate==""){
-	 		searchtext = " where acct_fund.tn_date >= '"+fromdate+"'"
-	 	}
-	 	else if(fromdate=="" && todate!=""){
-	 		searchtext = " where acct_fund.tn_date <= '"+todate+"'";
-	 	}
-	 	
-	 	var typename = "acct_type";
-	 	var noname = "acct_no";
 	 		        var data = {	table: $adminTables.tablename, 
 								    	objdata : $adminTables.objdata(),
-								      colselect: typename+".acctype_name,"+
-								    		   noname+".acct_name,"+
-								    		   $adminTables.tablename+".tn_id,"+
-								    		   $adminTables.tablename+".tn_date,"+
-								    		   $adminTables.tablename+".tn_detail,"+
-								    		   $adminTables.tablename+".amount,"+
-								    		   $adminTables.tablename+".remark"
-								    ,
-								    where :"left join "+typename+" on "+
-								    		$adminTables.tablename+".acctype_id = "+typename+	".acctype_id "+
-											"left join "+noname+" on "+
-											$adminTables.tablename+	".acct_id = "+noname+	".acct_id "+
-											searchtext
+								    //	where :"where Active = 'Y'"
 					    			};
-				  data.method = "get";	      			
+				  data.method = "get";	    			
 
  			var authorize = true;
 			 $adminTables.$grid = new Grid({
@@ -73,14 +34,9 @@ var $adminTables= {
             PerPage:20,
             fnRowDisplayFormat: function (html, data) {
                 return html.format(
-                		data.tn_id,
+                		data.goods_id,
                 		data.RecordNo,
-                    	data.acctype_name,
-	                    data.acct_name,
-	                    data.tn_date,
-	                    data.tn_detail,
-	                    data.amount,
-	                    data.remark
+                    	data.goods_name
                     );
             },
             fnRowElementsAction: [{
@@ -124,25 +80,6 @@ var $adminTables= {
        //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
        // });
 	},
-	ToCalendarDateSearch:function(divid){
-		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
-		 $(divid).datetimepicker({
-		                    locale: 'th',
-		                  //  sideBySide:true,
-		                   format: 'YYYY-MM-DD',
-		                    widgetPositioning: {
-									            horizontal: 'auto',
-									            vertical: 'bottom'
-									        }
-		                  //  widgetParent:".wiget-calendar-div"
-		                });
-		//  $adminMatches.$taskDialog.find(divid).on("dp.change", function (e) {
-       //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
-       // });
-	},
-	getDateForSearch:function(divid){
-   		return $pageEntity.dateFormate(new Date($('#'+divid).data('DateTimePicker').date().toString()));
-   },
 	ToCalendarDateTime:function(divid){
 		//	$adminMatches.$taskDialog.find('#datetimepicker1').datetimepicker();
 		 $adminTables.$taskDialog.find(divid).datetimepicker({
@@ -158,49 +95,6 @@ var $adminTables= {
        //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
        // });
 	},
-	ToDropdownAcctType:function(divid,callback){
-		var tablename = "acct_type"
-		  var objgetdata = {	table: tablename, 
-							objdata : $pageEntity.getColumns(tablename)
-				};
-		 objgetdata.method = "get";	   
-				  
-				 					$pageEntity.GetData($globalKudo.apipath,objgetdata,function(data){
-				 									
-				 						var jsonobj = JSON.parse(data.data);
-				 						var $selectdiv = $adminTables.$taskDialog.find(divid);
-				 						for(var i =0;i<jsonobj.length;i++){
-				 							 $("<option />", {value: jsonobj[i].acctype_id, text: jsonobj[i].acctype_name}).appendTo($selectdiv);
-				 						}
-				 						if(callback){
-								                        if(typeof callback == "function"){
-								                             callback();
-								                        }
-								                    }
-
-				 					});
-	},
-	ToDropdownAcctNo:function(divid,callback){
-		var tablename = "acct_no"
-		  var objgetdata = {	table: tablename, 
-							objdata : $pageEntity.getColumns(tablename)
-				};
-		 objgetdata.method = "get";	   
-				  
-				 					$pageEntity.GetData($globalKudo.apipath,objgetdata,function(data){
-				 									
-				 						var jsonobj = JSON.parse(data.data);
-				 						var $selectdiv = $adminTables.$taskDialog.find(divid);
-				 						for(var i =0;i<jsonobj.length;i++){
-				 							 $("<option />", {value: jsonobj[i].acct_id, text: jsonobj[i].acct_name}).appendTo($selectdiv);
-				 						}
-								if(callback){
-								                        if(typeof callback == "function"){
-								                             callback();
-								                        }
-								                    }
-				 					});
-	},
 	 dialogShow:function ($row, id){
 			$spinner.show();
 	 		
@@ -209,30 +103,9 @@ var $adminTables= {
             $adminTables.$formValid = $adminTables.$taskDialog.find("#tablesDataForms");
             $adminTables.$formValid.validate({
 		            rules: {
-		                acctype_id: {
+		                goods_name: {
 		                    required: true,
-		                    number: true,
-		                    maxlength:11,
-		                    digits: true,
-		                },
-		                acct_id: {
-		                    required: true,
-		                    number: true,
-		                    maxlength:11,
-		                    digits: true,
-		                },
-		                tn_date: {
-		                    required: true,
-		                },
-		                tn_detail: {
-		                    required: true,
-		                },
-		                amount: {
-		                    required: true,
-		                    number: true,
-		                },
-		                remark: {
-		                    required: true,
+		                    maxlength:50,
 		                },
 		            },
 		           /* messages: {
@@ -263,22 +136,16 @@ var $adminTables= {
             $adminTables.$taskDialog.find(".btn-close").hide();
 			$adminTables.ToCalendarDate("#tn_date");
 			
-				var tracking = $(this.name).attr("tracking");
-				
-			$adminTables.ToDropdownAcctType("#acctype_id",function(){
-				$adminTables.ToDropdownAcctNo("#acct_id",function(){
-					
-					    if(id){
+            if(id){
 
 
-            
+            	var tracking = $(this.name).attr("tracking");
             	if(tracking == "V"){
             			$adminTables.$taskDialog.find(".btn-save").hide();
             			$adminTables.$taskDialog.find(".btn-cancel").hide();
             			$adminTables.$taskDialog.find(".btn-close").show();
             			$adminTables.$taskDialog.find('input').prop('readonly', true);	
-            			$adminTables.$taskDialog.find('select').attr("disabled", true); 
-            			$adminTables.$taskDialog.find('textarea').prop('readonly', true);
+            			//$adminTables.$taskDialog.find('textarea').prop('readonly', true);
             	}else{
             		 $adminTables.$taskDialog.find(".btn-save").click(function(){
             		 				$adminTables.onSubmitUpdateTables(id);
@@ -293,13 +160,8 @@ var $adminTables= {
 				 									
 				 												var jsonobj = JSON.parse(data.data);
 				 												//alert(jsonobj[0].Name);
-				 												 $adminTables.$taskDialog.find('select[name=acctype_id]').val(jsonobj[0].acctype_id);	
-				 												 $adminTables.$taskDialog.find('select[name=acct_id]').val(jsonobj[0].acct_id);
-				 												 $adminTables.$taskDialog.find('#tn_date').data('DateTimePicker').date($pageEntity.MysqlDatetoDate(jsonobj[0].tn_date));	
-				 												 //$adminTables.$taskDialog.find('input[name=tn_date]').val(jsonobj[0].tn_date);
-				 												 $adminTables.$taskDialog.find('textarea[name=tn_detail]').html(jsonobj[0].tn_detail);	
-				 												 $adminTables.$taskDialog.find('input[name=amount]').val(jsonobj[0].amount);
-				 												 $adminTables.$taskDialog.find('textarea[name=remark]').html(jsonobj[0].remark);
+				 												 $adminTables.$taskDialog.find('input[name=goods_name]').val(jsonobj[0].goods_name);	
+				 												
            			 						
 				 									  $spinner.hide();		
            			 								$adminTables.$taskDialog.show();
@@ -311,13 +173,6 @@ var $adminTables= {
             		 $spinner.hide();		
            			 $adminTables.$taskDialog.show();
             }
-				});
-				
-			});
-			
-			//$adminTables.$taskDialog.find('#acctype_id').prop('readonly', true);	
-			
-        
 
 	 		}
 	 		catch(e){
@@ -383,19 +238,11 @@ var $adminTables= {
    addToDatabase:function(itemid){
    		if( $adminTables.$formValid.valid()){
    					//	var file_data = $adminTables.$taskDialog.find('#files').prop('files')[0];   
-   						var acctype_id		= $adminTables.$taskDialog.find('select[name=acctype_id]').val();
-					    var acct_id 	= $adminTables.$taskDialog.find('select[name=acct_id]').val();
-					    var tn_date 	= $adminTables.getDateToDb('tn_date');
-					    var tn_detail	= $adminTables.$taskDialog.find('textarea[name=tn_detail]').html();
-					    var amount 	= $adminTables.$taskDialog.find('input[name=amount]').val();
-					    var remark 	= $adminTables.$taskDialog.find('textarea[name=remark]').html();
+   						var goods_name		= $adminTables.$taskDialog.find('input[name=goods_name]').val();
+
    					 	var attno = $adminTables.objdata();
-	 								attno.acctype_id = acctype_id;
-	 								attno.acct_id = acct_id;
-									attno.tn_date = tn_date;	
-									attno.tn_detail = tn_detail;
-	 								attno.amount = amount;
-									attno.remark = remark;	
+	 								attno.goods_name = goods_name;
+
 	 						if(itemid){
 	 										attno.value = itemid;
 	 								}	

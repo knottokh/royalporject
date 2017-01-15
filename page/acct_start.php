@@ -90,12 +90,13 @@
 </div>
 <div id="tablesDataTmp" class="hidden">
      <form id="tablesDataForms" name="tablesDataForms" class="form-horizontal" role="form" method="get" action="">
-           <div class="form-group">
+              <div class="form-group">
                 <label class="col-sm-3 control-label" for="acctype_id">
                     acctype_id <span class="required">*</span>:
                 </label>
                 <div class="col-sm-9">
-                    <input type="text" name="acctype_id" class="form-control" />
+                    <select id="acctype_id" name="acctype_id" class="form-control">
+                    </select>
                 </div>
             </div>
             <div class="form-group">

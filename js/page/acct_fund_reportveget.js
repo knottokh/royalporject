@@ -8,10 +8,10 @@ var $adminTables= {
 	 	 return $pageEntity.getColumns($adminTables.tablename);
 	},
 	init : function(){
-				  $(document).on('click.bs.modal.data-api', '.btn-dlg-newItem', function (event) {
+			/*	  $(document).on('click.bs.modal.data-api', '.btn-dlg-newItem', function (event) {
 				  		$adminTables.dialogShow();
             return false;
-        });
+        });*/
          $(document).on('click.bs.modal.data-api', '.btn-dlg-searchItem', function (event) {
 				  		$adminTables.loadData();
             return false;
@@ -31,13 +31,13 @@ var $adminTables= {
 	 	}catch(e){}
 	 	var searchtext = "";
 	 	if(fromdate!="" && todate!=""){
-	 		searchtext = " where acct_fund.tn_date >= '"+fromdate+"' and acct_fund.tn_date <= '"+todate+"'";
+	 		searchtext = " and acct_fund.acctype_id='1' and acct_fund.tn_date >= '"+fromdate+"' and acct_fund.tn_date <= '"+todate+"'";
 	 	}
 	 	else if(fromdate!="" && todate==""){
-	 		searchtext = " where acct_fund.tn_date >= '"+fromdate+"'"
+	 		searchtext = " and acct_fund.acctype_id='1' and  acct_fund.tn_date >= '"+fromdate+"'"
 	 	}
 	 	else if(fromdate=="" && todate!=""){
-	 		searchtext = " where acct_fund.tn_date <= '"+todate+"'";
+	 		searchtext = " and acct_fund.acctype_id='1' and  acct_fund.tn_date <= '"+todate+"'";
 	 	}
 	 	
 	 	var typename = "acct_type";
@@ -56,11 +56,12 @@ var $adminTables= {
 								    		$adminTables.tablename+".acctype_id = "+typename+	".acctype_id "+
 											"left join "+noname+" on "+
 											$adminTables.tablename+	".acct_id = "+noname+	".acct_id "+
+											" where "+$adminTables.tablename+".acctype_id='1' "+
 											searchtext
 					    			};
 				  data.method = "get";	      			
 
- 			var authorize = true;
+ 			var authorize = false;
 			 $adminTables.$grid = new Grid({
            // TableId: "tblRoleListTask",
             // TableDataId: "tblRoleListDataTask",
@@ -158,7 +159,7 @@ var $adminTables= {
        //     $adminMatches.$taskDialog.find('#EndDateInput').data("DateTimePicker").minDate(e.date);
        // });
 	},
-	ToDropdownAcctType:function(divid,callback){
+		ToDropdownAcctType:function(divid,callback){
 		var tablename = "acct_type"
 		  var objgetdata = {	table: tablename, 
 							objdata : $pageEntity.getColumns(tablename)
@@ -194,7 +195,7 @@ var $adminTables= {
 				 						for(var i =0;i<jsonobj.length;i++){
 				 							 $("<option />", {value: jsonobj[i].acct_id, text: jsonobj[i].acct_name}).appendTo($selectdiv);
 				 						}
-								if(callback){
+											if(callback){
 								                        if(typeof callback == "function"){
 								                             callback();
 								                        }
@@ -262,13 +263,12 @@ var $adminTables= {
 
             $adminTables.$taskDialog.find(".btn-close").hide();
 			$adminTables.ToCalendarDate("#tn_date");
-			
 				var tracking = $(this.name).attr("tracking");
-				
 			$adminTables.ToDropdownAcctType("#acctype_id",function(){
-				$adminTables.ToDropdownAcctNo("#acct_id",function(){
-					
-					    if(id){
+				
+					$adminTables.ToDropdownAcctNo("#acct_id",function(){
+							
+            if(id){
 
 
             
@@ -311,13 +311,11 @@ var $adminTables= {
             		 $spinner.hide();		
            			 $adminTables.$taskDialog.show();
             }
-				});
-				
+					});
 			});
-			
+		
 			//$adminTables.$taskDialog.find('#acctype_id').prop('readonly', true);	
-			
-        
+		
 
 	 		}
 	 		catch(e){

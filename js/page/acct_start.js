@@ -15,9 +15,17 @@ var $adminTables= {
 			$adminTables.defaultimg =  $globalKudo.rootpath+"images/defaults/no-image.jpg";
 	 },
 	 loadData:function(){
+	 	var typename = "acct_type";
 	 		        var data = {	table: $adminTables.tablename, 
 								    	objdata : $adminTables.objdata(),
-								    //	where :"where Active = 'Y'"
+								    	 colselect: typename+".acctype_name,"+
+								    		  $adminTables.tablename+".acctype_id,"+
+								    		   $adminTables.tablename+".accyear,"+
+								    		   $adminTables.tablename+".accmount,"+
+								    		   $adminTables.tablename+".balance_backward,"+
+								    		   $adminTables.tablename+".balance_tomount,"+
+								    		   $adminTables.tablename+".balance_forward",
+								    	  where :" left join "+typename+" on "+$adminTables.tablename+".acctype_id = "+typename+".acctype_id"
 					    			};
 				  data.method = "get";	    			
 
@@ -36,7 +44,7 @@ var $adminTables= {
                 return html.format(
                 		data.acctype_id,
                 		data.RecordNo,
-                    	data.acctype_id,
+                    	data.acctype_name,
 	                    data.accyear,
 	                    data.accmount,
 	                    data.balance_backward,
@@ -69,6 +77,28 @@ var $adminTables= {
         });
 				$adminTables.$grid.Bind();
 	 },
+	 ToDropdownAcctType:function(divid,callback){
+		var tablename = "acct_type"
+		  var objgetdata = {	table: tablename, 
+							objdata : $pageEntity.getColumns(tablename)
+				};
+		 objgetdata.method = "get";	   
+				  
+				 					$pageEntity.GetData($globalKudo.apipath,objgetdata,function(data){
+				 									
+				 						var jsonobj = JSON.parse(data.data);
+				 						var $selectdiv = $adminTables.$taskDialog.find(divid);
+				 						for(var i =0;i<jsonobj.length;i++){
+				 							 $("<option />", {value: jsonobj[i].acctype_id, text: jsonobj[i].acctype_name}).appendTo($selectdiv);
+				 						}
+				 						if(callback){
+								                        if(typeof callback == "function"){
+								                             callback();
+								                        }
+								                    }
+
+				 					});
+	},
 	 dialogShow:function ($row, id){
 	 	 $spinner.show();	
 
@@ -137,16 +167,20 @@ var $adminTables= {
 		        });
 
             $adminTables.$taskDialog.find(".btn-close").hide();
+            	var tracking = $(this.name).attr("tracking");
+            
+            	$adminTables.ToDropdownAcctType("#acctype_id",function(){
 
             if(id){
 
 
-            	var tracking = $(this.name).attr("tracking");
+            
             	if(tracking == "V"){
             			$adminTables.$taskDialog.find(".btn-save").hide();
             			$adminTables.$taskDialog.find(".btn-cancel").hide();
             			$adminTables.$taskDialog.find(".btn-close").show();
             			$adminTables.$taskDialog.find('input').prop('readonly', true);	
+            			$adminTables.$taskDialog.find('select').attr("disabled", true); 
             	}else{
             		 $adminTables.$taskDialog.find(".btn-save").click(function(){
             		 				$adminTables.onSubmitUpdateTables(id);
@@ -160,7 +194,7 @@ var $adminTables= {
 				 					$pageEntity.GetData($globalKudo.apipath,objgetdata,function(data){
 				 									
 				 												var jsonobj = JSON.parse(data.data);
-				 												$adminTables.$taskDialog.find('input[name=acctype_id]').val(jsonobj[0].acctype_id);	
+				 												$adminTables.$taskDialog.find('select[name=acctype_id]').val(jsonobj[0].acctype_id);	
 				 												 $adminTables.$taskDialog.find('input[name=accyear]').val(jsonobj[0].accyear);
 				 												 $adminTables.$taskDialog.find('input[name=accmount]').val(jsonobj[0].accmount);
 				 												 $adminTables.$taskDialog.find('input[name=balance_backward]').val(jsonobj[0].balance_backward);	
@@ -177,7 +211,7 @@ var $adminTables= {
             		 $spinner.hide();		
            			 $adminTables.$taskDialog.show();
             }
-
+});
 	 		}
 	 		catch(e){
 	 			$spinner.hide();	
@@ -239,7 +273,7 @@ var $adminTables= {
    addToDatabase:function(itemid){
    		if( $adminTables.$formValid.valid()){
    					//	var file_data = $adminTables.$taskDialog.find('#files').prop('files')[0];   
-   						var acctype_id		= $adminTables.$taskDialog.find('input[name=acctype_id]').val();
+   						var acctype_id		= $adminTables.$taskDialog.find('select[name=acctype_id]').val();
 					    var accyear 	= $adminTables.$taskDialog.find('input[name=accyear]').val();
 					    var accmount		= $adminTables.$taskDialog.find('input[name=accmount]').val();
 					    var balance_backward 	= $adminTables.$taskDialog.find('input[name=balance_backward]').val();

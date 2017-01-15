@@ -69,6 +69,7 @@ var $pageEntity = {
 	 											buy_date:"buy_date",
 	 											buy_vender:"buy_vender",
 	 											acct_flag:"acct_flag",
+	 											tn_id:"tn_id",
 	 								};
 	 								break;	
 	 				case "asset_if"://7
@@ -366,7 +367,7 @@ var $pageEntity = {
 					     success: function (obj, textstatus) {
 					                  if( !('error' in obj) ) {
 					                     //alert("Insert Success");
-					                     callback("Insert Success");
+					                     callback(obj.resultmsg);
 					                  }
 					                  else {
 					                       alert(obj.error);

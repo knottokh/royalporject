@@ -194,7 +194,7 @@ var $adminTables= {
 				 						for(var i =0;i<jsonobj.length;i++){
 				 							 $("<option />", {value: jsonobj[i].acct_id, text: jsonobj[i].acct_name}).appendTo($selectdiv);
 				 						}
-								if(callback){
+											if(callback){
 								                        if(typeof callback == "function"){
 								                             callback();
 								                        }
@@ -262,13 +262,12 @@ var $adminTables= {
 
             $adminTables.$taskDialog.find(".btn-close").hide();
 			$adminTables.ToCalendarDate("#tn_date");
-			
 				var tracking = $(this.name).attr("tracking");
 				
 			$adminTables.ToDropdownAcctType("#acctype_id",function(){
-				$adminTables.ToDropdownAcctNo("#acct_id",function(){
-					
-					    if(id){
+					$adminTables.ToDropdownAcctNo("#acct_id",function(){
+							
+            if(id){
 
 
             
@@ -311,14 +310,12 @@ var $adminTables= {
             		 $spinner.hide();		
            			 $adminTables.$taskDialog.show();
             }
-				});
-				
-			});
-			
-			//$adminTables.$taskDialog.find('#acctype_id').prop('readonly', true);	
-			
-        
 
+					});
+			});
+		
+			//$adminTables.$taskDialog.find('#acctype_id').prop('readonly', true);	
+		
 	 		}
 	 		catch(e){
 	 			$spinner.hide();	

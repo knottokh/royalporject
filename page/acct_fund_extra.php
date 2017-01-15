@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Royal Project</title>
     <meta name="description" content="Manage you account.">
-    <?php $rootpath="../_layout/"; ?>
-    <?php $scriptroot="../../"; ?>   
+    <?php $rootpath="_layout/"; ?>
+    <?php $scriptroot="../"; ?>   
 
     <?php include $rootpath."scriptref.php";?>
 
-     <script src="<?=$scriptroot?>js/admin/admin_acct_fund.js"></script>
+     <script src="<?=$scriptroot?>js/page/acct_fund_extra.js"></script>
     </head>
 <body>
 <?php include $rootpath."header.php";?>
@@ -19,7 +19,7 @@
     
     <div class="kduo-contents">
         <div class="container">
-     <h1>ตาราง acct_fund</h1>
+     <h1>งานการลงบัญชีเพิ่มเติม </h1>
      <br/>
      <div class="form-group">
           <button class="btn btn-primary btn-dlg-newItem" type="button" >New Data</button>

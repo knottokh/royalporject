@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Royal Project</title>
     <meta name="description" content="Manage you account.">
-    <?php $rootpath="../_layout/"; ?>
-    <?php $scriptroot="../../"; ?>   
+    <?php $rootpath="_layout/"; ?>
+    <?php $scriptroot="../"; ?>   
 
     <?php include $rootpath."scriptref.php";?>
 
-     <script src="<?=$scriptroot?>js/admin/admin_acct_fund.js"></script>
+     <script src="<?=$scriptroot?>js/page/acct_fund_vegetables.js"></script>
     </head>
 <body>
 <?php include $rootpath."header.php";?>
@@ -19,11 +19,95 @@
     
     <div class="kduo-contents">
         <div class="container">
-     <h1>ตาราง acct_fund</h1>
+     <h1>งานการลงบัญชีจ่ายจากรายการต้นทุนจากการรับซื้อผัก  </h1>
      <br/>
-     <div class="form-group">
+   <!--  <div class="form-group">
           <button class="btn btn-primary btn-dlg-newItem" type="button" >New Data</button>
+    </div>-->
+    <div class="row">
+          <h4>********เพิ่มข้อมูล*********</h4>
+          <br/>
     </div>
+     <div class="row">
+        <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-sm-3 control-label" for="searchGood">
+                    วันทีซื้อ
+                </label>
+                <div class="col-sm-9">
+                    <div class='input-group date' id='searchGood'>
+                                <input type='text' name="searchGood" class="form-control"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                </div>
+            </div>    
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-dlg-searchGoodItem" type="button" >ค้นหา</button>
+        </div>
+    </div>
+    <div id="gridMainTablesGood" class="grid gridMain">
+    <div class="searching clearfix">
+        <div class="search-box hidden">
+            <div class="search-box-textbox">
+                <input type="search" name="txtGridSearch" class="form-control" />
+            </div>
+            <div class="search-box-button">
+                <input type="button" name="btnGridSearch" class="btn btn-default btn-search" value="Search" />
+            </div>
+        </div>
+        <div class="tablenav bottom">
+            <div class="tablenav-totals">
+                Total : <span class="displaying-num"></span> Items
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th data-name="records_no" class="col-center" style="width: 50px">No.</th>
+                    <th class="col-right">buy_date</th>
+                    <th class="">buy_vender</th>
+                    <th class="">buy_detail</th>
+                    <th class="col-right">amount</th>
+                    <th class="">buy_unit</th>
+                    <th class="col-right">price_unit</th>
+                    <th class="col-right">acct_flag</th>
+                    <th data-name="action" style="width: 110px"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="paging clearfix">
+        <ul class="pagination hidden"></ul>
+    </div>
+</div>
+
+
+<div id="gridMainTablesTeampGood" class="hidden">
+    <table>
+        <tbody>
+            <tr data-id="{0}" data-childid="{1}">
+                 <td class="col-center">{2}</td>
+                <td class="col-right">{3}</td>
+                <td class="col-center">{4}</td>
+                <td class="table-details">{5}</td>
+                <td class="col-center">{6}</td>
+                <td class="col-center">{7}</td>
+                <td class="col-center">{8}</td>
+                <td class="col-center">{9}</td>
+                <td class="col-right">
+                    <span tracking="V" class="kduo-pointer kudo-button btn-NewDataItem hidden" title="View" aria-hidden="true">New Data</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr/>
     <div class="row">
         <div class="col-md-5">
               <div class="form-group">
@@ -99,7 +183,7 @@
 
 </div>
                 
-     </div>       
+</div>       
 
 
 <div id="gridMainTablesTeamp" class="hidden">
