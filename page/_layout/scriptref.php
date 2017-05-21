@@ -5,7 +5,6 @@
 <link href="<?=$scriptroot?>css/common.css" rel="stylesheet" type="text/css" />
 <link href="<?=$scriptroot?>css/royalstyle.css" rel="stylesheet" type="text/css" />
 
-
 <script src="<?=$scriptroot?>lib/jquery-1.11.3.js"></script>
 <script src="<?=$scriptroot?>lib/jquery-ui-1.11.3/jquery-ui.min.js"></script>
 <script src="<?=$scriptroot?>lib/jquery.validate-1.15.0.min.js"></script>
@@ -19,4 +18,5 @@
 <script src="<?=$scriptroot?>js/grid.js"></script>
 <script src="<?=$scriptroot?>js/databaseStructure.js"></script>
 <script src="<?=$scriptroot?>js/globalFunction.js"></script>
+<script src="<?=$scriptroot?>React/royalvariable.js"></script>
 

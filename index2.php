@@ -8,9 +8,7 @@
     <?php $rootpath="page/_layout/"; ?>
     <?php $scriptroot=""; ?>   
 
-    <?php include $rootpath."scriptref.php";?>
-
-
+    <?php include $rootpath."scriptref.php";?>  
   </head>
 
   <body>
@@ -59,8 +57,6 @@
       </a>
     </section>
     </div>
-
-
     <?php include $rootpath."footer.php";?>
   </body>
 </html>
