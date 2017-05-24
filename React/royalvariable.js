@@ -1,5 +1,5 @@
 var royalentitey = {
-	"acct_fund":{
+		"acct_fund":{
 			tablename:"acct_fund",
 		 	dbfield:{	
 		 			primary :"tn_id",
@@ -12,7 +12,7 @@ var royalentitey = {
 			 		amount:"amount",
 			 		remark:"remark"
 			 	},
-			dbselectcolumn:"*",
+			dbselectcolumn:"",
 			dbwhere:"",
 			viewcolumn:[
                     {"key":"acct_id","label":"acct_id","type":"Number"},
@@ -20,7 +20,59 @@ var royalentitey = {
                     {"key":"tn_detail","label":"tn_detail Type","type":"String"},
                     {"key":"amount","label":"amount","type":"String"},
                     {"key":"remark","label":"remark","type":"String"}
-                  ]
+                  ],
+      FieldInput:[
+	      	{
+	        title:"acctype_id ",
+	        dbfield:"acctype_id",
+	        value:'',
+	        type:'dropdown-autocomplete',
+	        require:true,
+	        sourcetable:{
+	        	table:"acct_type",
+	        	dbselectcolumn:"*",
+	        	dbwhere:""
+	        },  //require
+	        field:"acctype_name:acctype_id"  //require
+	      },
+	      {
+	        title:"acct_id",
+	        dbfield:"acct_id",
+	        value:'',
+	        type:'text',
+	        require:true
+	      },
+	      {
+	        title:"tn_date",
+	        dbfield:"tn_date",
+	        value:'',
+	        type:'date',
+	        require:false,
+	        format:"YYYY-MM-DD"
+	      },
+	      {
+	        title:"tn_detail ",
+	        dbfield:"tn_detail",
+	        value:'',
+	        type:'textarea',
+	        require:false,
+	      },
+	      {
+	        title:"amount",
+	        dbfield:"amount",
+	        value:'',
+	        type:'number',
+	        require:false,
+	      },
+	      {
+	        title:"remark",
+	        dbfield:"remark",
+	        value:'',
+	        type:'textarea',
+	        require:false,
+	      }
+
+      ]
 	 },
 	 "acct_no":{
 	 											primary :"acct_id",
@@ -41,11 +93,17 @@ var royalentitey = {
 	 											balance_forward : "balance_forward"
 	 								},
 	"acct_type":{
-	 											primary :"acctype_id",
-	 											value : 0,
-	 											acctype_id:"acctype_id",//p
-	 											acctype_name:"acctype_name",
-	 											fund_id:"fund_id",//From funds
+			tablename:"acct_type",
+		 	dbfield:{	
+	 					primary :"acctype_id",
+	 					value : 0,
+	 					acctype_id:"acctype_id",//p
+	 					acctype_name:"acctype_name",
+	 					fund_id:"fund_id",//From funds
+			 	},
+			dbselectcolumn:"*",
+			dbwhere:""
+
 	 }	,	
 	"agriculture_goods_dtl"://5
 		 						{
@@ -308,6 +366,7 @@ var royalobj = {
     apipath : '/php/api.php',
     upload : '/php/upload.php',
     authorize : true,
+    perpage:10,
     menus:[
     	{
     		title:"หน้าหลัก",

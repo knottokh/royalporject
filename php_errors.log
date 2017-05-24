@@ -211,3 +211,42 @@
 [20-May-2017 19:49:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
 [20-May-2017 19:49:34 UTC] PHP Stack trace:
 [20-May-2017 19:49:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:50:36 UTC] PHP Stack trace:
+[24-May-2017 17:50:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:50:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:50:41 UTC] PHP Stack trace:
+[24-May-2017 17:50:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:50:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:50:58 UTC] PHP Stack trace:
+[24-May-2017 17:50:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:51:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:51:03 UTC] PHP Stack trace:
+[24-May-2017 17:51:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:51:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:51:48 UTC] PHP Stack trace:
+[24-May-2017 17:51:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 17:51:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 17:51:52 UTC] PHP Stack trace:
+[24-May-2017 17:51:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:11:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 18:11:42 UTC] PHP Stack trace:
+[24-May-2017 18:11:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:11:42 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/ubuntu/workspace/php/api.php on line 117
+[24-May-2017 18:11:42 UTC] PHP Stack trace:
+[24-May-2017 18:11:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:11:42 UTC] PHP   2. array_key_exists() /home/ubuntu/workspace/php/api.php:117
+[24-May-2017 18:11:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 18:11:48 UTC] PHP Stack trace:
+[24-May-2017 18:11:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:11:48 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/ubuntu/workspace/php/api.php on line 117
+[24-May-2017 18:11:48 UTC] PHP Stack trace:
+[24-May-2017 18:11:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:11:48 UTC] PHP   2. array_key_exists() /home/ubuntu/workspace/php/api.php:117
+[24-May-2017 18:15:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/php/api.php on line 62
+[24-May-2017 18:15:38 UTC] PHP Stack trace:
+[24-May-2017 18:15:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:15:38 UTC] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home/ubuntu/workspace/php/api.php on line 117
+[24-May-2017 18:15:38 UTC] PHP Stack trace:
+[24-May-2017 18:15:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/api.php:0
+[24-May-2017 18:15:38 UTC] PHP   2. array_key_exists() /home/ubuntu/workspace/php/api.php:117
