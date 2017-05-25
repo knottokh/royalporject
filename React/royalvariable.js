@@ -12,10 +12,13 @@ var royalentitey = {
 			 		amount:"amount",
 			 		remark:"remark"
 			 	},
-			dbselectcolumn:"",
-			dbwhere:"",
+			dbselectcolumn:"acct_type.acctype_name,acct_no.acct_name,acct_fund.tn_id,acct_fund.tn_date,"+
+							"acct_fund.tn_detail,acct_fund.amount,acct_fund.remark",
+			dbwhere:"left join acct_type on acct_fund.acctype_id = acct_type.acctype_id "+
+					"left join acct_no on acct_fund.acct_id = acct_no.acct_id ",
 			viewcolumn:[
-                    {"key":"acct_id","label":"acct_id","type":"Number"},
+                    {"key":"acctype_name","label":"acctype_name","type":"String"},
+                    {"key":"acct_name","label":"acct_name","type":"String"},
                     {"key":"tn_date","label":"tn_date","type":"Date"},
                     {"key":"tn_detail","label":"tn_detail Type","type":"String"},
                     {"key":"amount","label":"amount","type":"String"},
@@ -33,14 +36,22 @@ var royalentitey = {
 	        	dbselectcolumn:"*",
 	        	dbwhere:""
 	        },  //require
-	        field:"acctype_name:acctype_id"  //require
+	        field:"acctype_name:acctype_id",  //require
+	        number:true
 	      },
 	      {
 	        title:"acct_id",
 	        dbfield:"acct_id",
 	        value:'',
-	        type:'text',
-	        require:true
+	        type:'dropdown-autocomplete',
+	        require:true,
+	        sourcetable:{
+	        	table:"acct_no",
+	        	dbselectcolumn:"*",
+	        	dbwhere:""
+	        },  //require
+	        field:"acct_name:acct_id",  //require
+	        number:true
 	      },
 	      {
 	        title:"tn_date",
@@ -63,6 +74,7 @@ var royalentitey = {
 	        value:'',
 	        type:'number',
 	        require:false,
+	        number:true
 	      },
 	      {
 	        title:"remark",
@@ -75,12 +87,18 @@ var royalentitey = {
       ]
 	 },
 	 "acct_no":{
-	 											primary :"acct_id",
-	 											value : 0,
-	 											acct_id :"acct_id",//p
-	 											acct_name:"acct_name",
-	 											acct_level:"acct_level",
-	 											acct_group:"acct_group", 
+	 		tablename:"acct_no",
+		 	dbfield:{	
+	 					primary :"acct_id",
+	 				    value : 0,
+	 					acct_id :"acct_id",//p
+	 					acct_name:"acct_name",
+	 					acct_level:"acct_level",
+	 					acct_group:"acct_group", 
+			 	},
+			dbselectcolumn:"*",
+			dbwhere:""
+	 											
 	 	},
 	 	"acct_start":{
 	 											primary :"acctype_id",
