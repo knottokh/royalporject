@@ -13,7 +13,7 @@ var royalentitey = {
 	"goods_tf":_config_goods_tf,//12,
 	"goods":_config_goods,//13
 	"mill_expense_tn":_config_mill_expense_tn,//14
-	"mill_expense_transf_dtl":_config_mill_expense_transf_dtl,//15
+//	"mill_expense_transf_dtl":_config_mill_expense_transf_dtl,//15
 	"mill_expense_transf":_config_mill_expense_transf,//16
 	"mill_expense_type":_config_mill_expense_type,//17
 	"mill_fund_board":_config_mill_fund_board,//18

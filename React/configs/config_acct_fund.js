@@ -10,7 +10,8 @@ var _config_acct_func={
 			 		tn_date:"tn_date",
 			 		tn_detail:"tn_detail",
 			 		amount:"amount",
-			 		remark:"remark"
+			 		remark:"remark",
+			 		//fund_tn_id
 			 	},
 	dbselectcolumn:"acct_type.acctype_name,acct_no.acct_name,acct_fund.tn_id,acct_fund.tn_date,"+
 						"acct_fund.tn_detail,acct_fund.amount,acct_fund.remark",
@@ -20,7 +21,7 @@ var _config_acct_func={
        {"key":"acctype_name","label":"acctype_name","type":"String"},
        {"key":"acct_name","label":"acct_name","type":"String"},
        {"key":"tn_date","label":"tn_date","type":"Date"},
-       {"key":"tn_detail","label":"tn_detail Type","type":"String"},
+       {"key":"tn_detail","label":"tn_detail","type":"String"},
        {"key":"amount","label":"amount","type":"String"},
        {"key":"remark","label":"remark","type":"String"},
      ],

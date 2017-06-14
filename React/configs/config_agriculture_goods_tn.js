@@ -8,7 +8,7 @@ var _config_agriculture_goods_tn={
       buy_date:"buy_date",
       buy_vender:"buy_vender",
       acct_flag:"acct_flag",//auto change
-      tn_id:"tn_id",//auto addded
+     // tn_id:"tn_id",//auto addded
     },
     dbselectcolumn:"",
     dbwhere:"",
@@ -16,7 +16,7 @@ var _config_agriculture_goods_tn={
       {"key":"buy_date","label":"buy_date","type":"Date"},
       {"key":"buy_vender","label":"buy_vender","type":"String"},
       {"key":"acct_flag","label":"acct_flag","type":"String"},
-      {"key":"tn_id","label":"tn_id","type":"Number"},
+     // {"key":"tn_id","label":"tn_id","type":"Number"},
     ],
     FieldInput:[
       {
@@ -34,14 +34,14 @@ var _config_agriculture_goods_tn={
 	        type:'text',
 	        require:true,
 	      },
-	    {
+	   /* {
 	        title:"tn_id",
 	        dbfield:"tn_id",
 	        value:'',
 	        type:'number',
 	        require:false,
 	        number:true
-	      },
+	      },*/
 	      {
 	        title:"acct_flag ",
 	        dbfield:"acct_flag",
